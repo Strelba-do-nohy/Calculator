@@ -1,0 +1,86 @@
+1. Dedlines:
+ - 15.03.2022 (Create repository, Write README)
+ - 17.03.2022 (Make a plan)
+ - 21.03.2022 (GUI Skeleton)
+ - 24.03.2022 (Test (TDD) for math library)
+ - 01.04.2022 (Create final GUI, Input/Output, Create Math Library)
+ - 02.04.2022 (Test GUI)
+ - 03.04.2022 (Project Assemling)
+ - 04.04.2022 (Debugging)
+ - 11.04.2022 (Make Instalator/Deinstalator)
+ - 17.04.2022 (Dokumentation Doxygen, create mockup)
+ - 21.04.2022 (Dokumentation for user, create Makefile)
+ - 24.04.2022 (Report about differences between the project and reality reality.txt,
+Create rating of team members hodnoceni.txt)
+ - 27.04.2022 (Create file odevzdani.txt)
+ - 28.04.2022 (Submit a project)
+ - 19.05.2022 (Create files xloginNN_problemy.txt)
+ - 22.05.2022 (PDF presentation, preparing for presentation)
+
+2. Assigning tasks to individual project managers:
+     
+     -xzdebs00 (Kateryna Zdebska):
+ -Create repository
+ -Test for math library
+ -Test GUI
+ -Make Deinstalator
+ -Create Makefile
+ -Submit a project
+
+
+    -xgarip00 (Dinara Garipova):
+ -Make a plan
+ -Create Math Library
+ -Test GUI
+ -Documentation Doxygen
+ -Create Makefile
+ -Create rating of team members hodnoceni.txt
+ -Create file odevzdani.txt
+ -PDF presentation
+
+ 
+     -xklima34 (Aliaksei Klimau):
+ -Write README
+ -GUI Skeleton
+ -Create final GUI
+ -Project Assemling
+ -Make Instalator
+ -Create mockup
+
+
+    -xaidus00 (Alina Aidusheva):
+ -Create Input/Output
+ -Project Assemling
+ -Create mockup
+ -Dokumentation for user
+ -PDF presentation
+
+    
+    -together tasks:
+ -Debugging
+ -Report about differences between the project and reality reality.txt
+ -Create files xloginNN_problemy.txt
+ -Preparing for a presentation
+
+3. Our Communication:
+ 
+ - We have created a chat in Telegram, where we solve frivolous (minor) problems,
+ ask questions and control the activity of completing tasks.
+ - We also organized a Discord group where we call up at least once a week, check
+ the work, give comments on the work of teammates and solve serious problems that
+ cannot be solved by one team member.
+ - Also in Discord, we confer and carry out common tasks.
+ - And finally, we created a channel in the github, where we outlined our plan
+ and deadlines, and where we post the finished parts of the project so that each
+ team member can rely on the work of a teammate.
+
+4. Choosing a programming environment and git:
+ -Programming environment: Visual Studio Code (Language: Python)
+ -Git: github
+ -Hosting: https://github.com/.
+ - Our repository is https://github.com/Strelba-do-nohy 
+ -We have also added user with email ivs.kontrola@gmail.com to the repository as
+colleague so that this user can check out this store after receiving the file
+invitation.
+  
+
