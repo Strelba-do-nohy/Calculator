@@ -1,6 +1,7 @@
 1. Dedlines:
- - 15.03.2022 (Create repository, Write README)
+ - 15.03.2022 (Create repository)
  - 17.03.2022 (Make a plan)
+ - 18.03.2022 (Write README)
  - 21.03.2022 (GUI Skeleton)
  - 24.03.2022 (Test (TDD) for math library)
  - 01.04.2022 (Create final GUI, Input/Output, Create Math Library)
