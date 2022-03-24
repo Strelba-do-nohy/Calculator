@@ -71,6 +71,21 @@ class TestCalc(unittest.TestCase):
         self.assertRaises(ValueError, calculator_library.root, 7, 0)
         self.assertRaises(ValueError, calculator_library.root, 7, 3.33)
         self.assertRaises(ValueError, calculator_library.root, 7, -3)
+    
+    def test_logarithm(self):
+        self.assertEqual(calculator_library.logarithm(2, 8), 3)
+        self.assertEqual(calculator_library.logarithm(2, 1), 0) 
+        self.assertEqual(calculator_library.logarithm(9, 3), 0.5)
+        self.assertEqual(calculator_library.logarithm(0.5, 2), -1)  
+        
+        self.assertAlmostEqual(calculator_library.logarithm(10, 8), 0.9030899, places = N_AFTER_DOT)
+        self.assertAlmostEqual(calculator_library.logarithm(0.5, 3), -1.5849625, places = N_AFTER_DOT)
+
+        self.assertRaises(ValueError, calculator_library.logarithm, -5, 2)
+        self.assertRaises(ValueError, calculator_library.logarithm, 1, 2)
+        self.assertRaises(ValueError, calculator_library.logarithm, 2, -2)
+        self.assertRaises(ValueError, calculator_library.logarithm, 0, 2)
+        self.assertRaises(ValueError, calculator_library.logarithm, 2, 0)
 
 if __name__ == '__main__':
     unittest.main()
