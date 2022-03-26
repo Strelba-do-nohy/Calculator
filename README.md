@@ -7,7 +7,7 @@ Windows 64bit
 Autori
 ------
 
-Nazev tymu
+Strelba do nohy
 - xzdebs00 Kateryna Zdebska
 - xgarip00 Dinara Garipova 
 - xklima34
