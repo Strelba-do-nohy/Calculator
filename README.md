@@ -10,8 +10,8 @@ Autori
 Strelba do nohy
 - xzdebs00 Kateryna Zdebska
 - xgarip00 Dinara Garipova 
-- xklima34
-- xaidus00 Alina
+- xklima34 Aliaksei Klimau
+- xaidus00 Alina Aidusheva
 
 Licence
 -------
