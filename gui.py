@@ -1,5 +1,5 @@
 from glob import glob
-import tkinter as tk
+from future.moves import tkinter as tk
 from tkinter import font 
 
 calculation = ""
@@ -48,7 +48,7 @@ def clear_field():
     pass
 
 root = tk.Tk()
-root.geometry("500x500")
+root.geometry("500x400")
 
 
 text_result = tk.Text(root, height=2, width=22, font=("Arial", 24))
@@ -77,7 +77,7 @@ btn_0.grid(row=6, column=1)
 
 btn_dot = tk.Button(root, text=".", command = lambda: add_to_calculation("."), width=5, font=("Arial", 14))
 btn_dot.grid(row=6, column=2)
-btn_equal = tk.Button(root, text="=", command = evaluate_calculation, width=5, font=("Arial", 14))
+btn_equal = tk.Button(root, text="=", command = evaluate_calculation, width=5, font=("Arial", 14), bg="#0098ED")
 btn_equal.grid(row=6, column=3)
 
 btn_left_parenthesis = tk.Button(root, text="(", command = lambda: add_to_calculation("("), width=5, font=("Arial", 14))
@@ -86,7 +86,7 @@ btn_left_parenthesis.grid(row=2, column=1)
 btn_right_parenthesis = tk.Button(root, text=")", command = lambda: add_to_calculation(")"), width=5, font=("Arial", 14))
 btn_right_parenthesis.grid(row=2, column=2)
 
-btn_clear = tk.Button(root, text="C", command = clear_field, width=6, font=("Arial", 14))
+btn_clear = tk.Button(root, text="C", command = clear_field, width=6, font=("Arial", 14), bg='#CB0535')
 btn_clear.grid(row=2, column=5)
 
 btn_root = tk.Button(root, text="√", command = lambda: add_to_calculation("√"), width=5, font=("Arial", 14))
