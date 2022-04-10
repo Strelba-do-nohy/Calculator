@@ -7,7 +7,6 @@
 #function CORRECT_IN Kontroluje, 
 # zda uživatel zadává číslice, 
 #a pokud ne, nepočítá
-from re import I
 
 
 def CORRECT_IN(one,two):
