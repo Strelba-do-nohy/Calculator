@@ -1,5 +1,5 @@
 from glob import glob
-from future.moves import tkinter as tk
+import tkinter as tk
 from tkinter import font 
 
 calculation = ""
@@ -11,17 +11,6 @@ def add_to_calculation(symbol):
     text_result.insert(1.0, calculation)
     
 
-def evaluate_calculation():
-    global calculation
-    try:
-        calculation = str(eval(calculation))
-        text_result.delete(1.0, "end")
-        text_result.inset(1.0, result)
-
-    except:
-        clear_field()
-        text_result.inser(1.0, "Error")
-    pass
 
 def evaluate_calculation():
     global calculation
