@@ -78,10 +78,14 @@ btn_right_parenthesis.grid(row=2, column=2)
 btn_clear = tk.Button(root, text="C", command = clear_field, width=6, font=("Arial", 14), bg='#CB0535')
 btn_clear.grid(row=2, column=5)
 
+
+btn_factorial = tk.Button(root, text="x!", command = lambda: add_to_calculation("!"), width=6, font=("Arial", 14))
+btn_factorial.grid(row=3, column=5)
+
 btn_root = tk.Button(root, text="√", command = lambda: add_to_calculation("√"), width=5, font=("Arial", 14))
 btn_root.grid(row=2, column=3)
 
-btn_power = tk.Button(root, text="x\u02b8", command = lambda: add_to_calculation("**"), width=5, font=("Arial", 14))
+btn_power = tk.Button(root, text="x\u02b8", command = lambda: add_to_calculation("^"), width=5, font=("Arial", 14))
 btn_power.grid(row=2, column=4)
 
 # btn_advanced_mod = tk.Button(root, text="Advanced", command = lambda: add_to_calculation(1), width=5, font=("Arial", 14))
