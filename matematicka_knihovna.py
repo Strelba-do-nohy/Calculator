@@ -108,7 +108,7 @@ def koren(osnova,stupen):
             if osnova<0:
                 if stupen%2==1:
                     osnova=osnova*(-1)
-                    return -1*osnova**(1/b)
+                    return -1*osnova**(1/stupen)
                 else:
                     raise TypeError("Wrong input! Please write a number osnova >0.")
             return osnova**(1/stupen)
