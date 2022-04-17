@@ -21,7 +21,7 @@ def CORRECT_IN(one,two):
 #one je prvni operand
 #two je druhy operand
 #funkce vrati soucet operandu one a two
-def PLUS(one,two):
+def plus(one,two):
     if CORRECT_IN(one,two) is True:
         return one+two
     else:
@@ -33,7 +33,7 @@ def PLUS(one,two):
 #one je prvni operand
 #two je druhy operand
 #funkce vrati odcitani operandu one a two
-def MINUS(one,two):
+def minus(one,two):
     if CORRECT_IN(one,two) is True:
         return one-two
     else:
@@ -44,7 +44,7 @@ def MINUS(one,two):
 #one je prvni operand
 #two je druhy operand
 #funkce vrati soucin operandu one a two
-def UMNOZ(one,two):
+def umnoz(one,two):
    if CORRECT_IN(one,two) is True:
         return one*two
    else:
@@ -55,7 +55,7 @@ def UMNOZ(one,two):
 #one je prvni operand
 #two je druhy operand
 #funkce vrati rozdil operandu one a two
-def PODELI(one,two):
+def podeli(one,two):
     if CORRECT_IN(one,two) is True:
         return one/two
     else:
@@ -66,7 +66,7 @@ def PODELI(one,two):
 #funcke FAKTORIAL potrebuje jeden operand
 #cislo je operand ktery je v faktorialu
 #funkce vrati faktorial cisla
-def FAKTORIAL(cislo):
+def faktorial(cislo):
     if CORRECT_IN(cislo,cislo) is True:
      if cislo >=0:
          return 1
@@ -85,7 +85,7 @@ def FAKTORIAL(cislo):
 # ktery je umocnen
 # exponenta je samotný stupeň
 #Funkce vrací základ zvednutý na mocninu
-def EXPONENTA(osnova,exponenta):
+def exponenta(osnova,exponenta):
     if CORRECT_IN(osnova,exponenta) is True:
      if (exponenta == 0 or exponenta < 0) and osnova == 0:
          raise ValueError
@@ -100,7 +100,7 @@ def EXPONENTA(osnova,exponenta):
 #osnova je cislo ze ktereho se bere koren
 #stupen je korenovy stupen
 #funkce vraci nejaky koren cisla
-def KOREN(osnova,stupen):
+def koren(osnova,stupen):
     if CORRECT_IN(osnova,stupen) is True:
         if (stupen == 0 or stupen <0) and osnova ==0:
             raise ValueError
@@ -121,7 +121,7 @@ def KOREN(osnova,stupen):
 #osnova je cislo 
 #cislo je cislo s ktereho berem logarifm od osnovy
 #funkce vraci nejaky logarifm cisla od osnovy
-def LOG(osnova,cislo):
+def log(osnova,cislo):
     if CORRECT_IN(osnova,cislo) is True:
         for i in range(1,cislo):
          if osnova**i==cislo:
