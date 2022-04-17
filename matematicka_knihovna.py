@@ -25,7 +25,7 @@ def plus(one,two):
     if CORRECT_IN(one,two) is True:
         return one+two
     else:
-        raise ValueError
+        raise TypeError("Wrong input! Please write a number.")
         return 0
         
 
@@ -37,7 +37,7 @@ def minus(one,two):
     if CORRECT_IN(one,two) is True:
         return one-two
     else:
-        raise ValueError
+        raise TypeError("Wrong input! Please write a number.")
         return 0
 
 #funkce UMNOZ potrebuje dva operandy
@@ -48,7 +48,7 @@ def umnoz(one,two):
    if CORRECT_IN(one,two) is True:
         return one*two
    else:
-        raise ValueError
+        raise TypeError("Wrong input! Please write a number.")
         return 0
 
 #funkce PODELI potrebuje dva operandy
@@ -59,7 +59,7 @@ def podeli(one,two):
     if CORRECT_IN(one,two) is True:
         return one/two
     else:
-        raise ValueError
+        raise TypeError("Wrong input! Please write a number.")
         return 0
 
 
@@ -72,12 +72,12 @@ def faktorial(cislo):
          return 1
          odpoved=1
      else:
-         raise ValueError
+         raise TypeError("Wrong input! Please write a number >=0.")
      for i in range(1,cislo+1):
          odpoved *= i
      return odpoved
     else:
-        raise ValueError
+        raise TypeError("Wrong input! Please write a number.")
         return 0
 
 #funkce EXPONENTA potrebuje dva operandy
@@ -88,11 +88,11 @@ def faktorial(cislo):
 def exponenta(osnova,exponenta):
     if CORRECT_IN(osnova,exponenta) is True:
      if (exponenta == 0 or exponenta < 0) and osnova == 0:
-         raise ValueError
+         raise TypeError("Wrong input! Please write a number exponenta >0.")
      else:
          return osnova**exponenta
     else:
-        raise ValueError
+        raise TypeError("Wrong input! Please write a number.")
         return 0
 
 
@@ -102,18 +102,18 @@ def exponenta(osnova,exponenta):
 #funkce vraci nejaky koren cisla
 def koren(osnova,stupen):
     if CORRECT_IN(osnova,stupen) is True:
-        if (stupen == 0 or stupen <0) and osnova ==0:
-            raise ValueError
+        if (stupen == 0 or stupen < 0) and osnova == 0:
+            raise TypeError("Wrong input! Please write a number stupen >0 and osnova !=0.")
         else:
             if osnova<0:
                 if stupen%2==1:
                     osnova=osnova*(-1)
                     return -1*osnova**(1/b)
                 else:
-                    raise ValueError
+                    raise TypeError("Wrong input! Please write a number osnova >0.")
             return osnova**(1/stupen)
     else:
-        raise ValueError
+        raise TypeError("Wrong input! Please write a number.")
         return 0
 
 
@@ -123,10 +123,13 @@ def koren(osnova,stupen):
 #funkce vraci nejaky logarifm cisla od osnovy
 def log(osnova,cislo):
     if CORRECT_IN(osnova,cislo) is True:
-        for i in range(1,cislo):
-         if osnova**i==cislo:
-             return i
+        if (osnova == 1 or osnova < 0 or cislo < 0):
+            raise TypeError("Wrong input! Please write a number osnova !=1 and osnova >0 and cislo >0.")
+        else:
+            for i in range(1,cislo):
+               if (osnova**i==cislo):
+               return i
     else:
-        raise ValueError
+        raise TypeError("Wrong input! Please write a number.")
         return 0
     
