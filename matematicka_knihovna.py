@@ -85,12 +85,12 @@ def faktorial(cislo):
 # ktery je umocnen
 # exponenta je samotný stupeň
 #Funkce vrací základ zvednutý na mocninu
-def exponenta(osnova,exponenta):
-    if CORRECT_IN(osnova,exponenta) is True:
-     if (exponenta == 0 or exponenta < 0) and osnova == 0:
-         raise TypeError("Wrong input! Please write a number exponenta >0.")
+def exponenta(osnova,stupen):
+    if CORRECT_IN(osnova,stupen) is True:
+     if (stupen == 0 or stupen < 0) and osnova == 0:
+         raise TypeError("Wrong input! Please write a number stupen >0.")
      else:
-         return osnova**exponenta
+         return osnova**stupen
     else:
         raise TypeError("Wrong input! Please write a number.")
         return 0
