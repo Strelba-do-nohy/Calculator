@@ -10,9 +10,9 @@
 
 
 def CORRECT_IN(one,two):
-    if (type(one) != int or type(one) != float):
+    if (type(one) != int and type(one) != float):
         return False
-    elif (type(two) != float or type(two) != int):
+    elif (type(two) != float and type(two) != int):
         return False
     else:
         return True
