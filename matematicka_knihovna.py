@@ -4,11 +4,9 @@
 #Dinara_Garipova xgarip00
 #Datum 01.04.2022
 
-#function CORRECT_IN Kontroluje, 
-# zda uživatel zadává číslice, 
-#a pokud ne, nepočítá
-
-
+#The function CORRECT_IN cheks, 
+# if the user specifies numbers, 
+#if not then does not count anything
 def CORRECT_IN(one,two):
     if (type(one) != int and type(one) != float):
         return False
@@ -17,10 +15,10 @@ def CORRECT_IN(one,two):
     else:
         return True
 
-#funkce PLUS potrebuje dva operandy
-#one je prvni operand
-#two je druhy operand
-#funkce vrati soucet operandu one a two
+#Function PLUS requires two statements
+#one is the first statement
+#two is the second statement
+#the function reterns sum of statements one and two
 def plus(one,two):
     if CORRECT_IN(one,two) is True:
         return one+two
@@ -29,10 +27,10 @@ def plus(one,two):
         return 0
         
 
-#funkce MINUS potrebuje dva operandy
-#one je prvni operand
-#two je druhy operand
-#funkce vrati odcitani operandu one a two
+#Function MINUS requires two statements
+#one is the first statement
+#two is the second statement
+#the function reterns difference between of statements one and two
 def minus(one,two):
     if CORRECT_IN(one,two) is True:
         return one-two
@@ -40,10 +38,10 @@ def minus(one,two):
         raise TypeError("Wrong input! Please write a number.")
         return 0
 
-#funkce UMNOZ potrebuje dva operandy
-#one je prvni operand
-#two je druhy operand
-#funkce vrati soucin operandu one a two
+#Function UMNOZ requires two statements
+#one is the first statement
+#two is the second statement
+#the function reterns multiplication of statements one and two
 def umnoz(one,two):
    if CORRECT_IN(one,two) is True:
         return one*two
@@ -51,10 +49,10 @@ def umnoz(one,two):
         raise TypeError("Wrong input! Please write a number.")
         return 0
 
-#funkce PODELI potrebuje dva operandy
-#one je prvni operand
-#two je druhy operand
-#funkce vrati rozdil operandu one a two
+#Function PODELI requires two statements
+#one is the first statement
+#two is the second statement
+#the function reterns quotient of statements one and two
 def podeli(one,two):
     if CORRECT_IN(one,two) is True:
         return one/two
@@ -63,9 +61,9 @@ def podeli(one,two):
         return 0
 
 
-#funcke FAKTORIAL potrebuje jeden operand
-#cislo je operand ktery je v faktorialu
-#funkce vrati faktorial cisla
+#Function FAKTORIAL requirs two statements
+#cislo number is an operand that is in the factorial
+#function returns factorial of number
 def faktorial(cislo):
     if CORRECT_IN(cislo,cislo) is True:
      if cislo >=0:
@@ -80,11 +78,11 @@ def faktorial(cislo):
         raise TypeError("Wrong input! Please write a number.")
         return 0
 
-#funkce EXPONENTA potrebuje dva operandy
-#oberand osnova je základ (cislo), 
-# ktery je umocnen
-# exponenta je samotný stupeň
-#Funkce vrací základ zvednutý na mocninu
+#Function EXPONENTA requirs two statements
+#operand osnova is a base (number) (cislo), 
+# which is amplified
+# exponenta is the **************
+#The function returns the base raised to the power
 def exponenta(osnova,stupen):
     if CORRECT_IN(osnova,stupen) is True:
      if (stupen == 0 or stupen < 0) and osnova == 0:
@@ -96,10 +94,10 @@ def exponenta(osnova,stupen):
         return 0
 
 
-#funkce KOREN potrebuje dva operandy
-#osnova je cislo ze ktereho se bere koren
-#stupen je korenovy stupen
-#funkce vraci nejaky koren cisla
+#Function KOREN requirs two statements
+#osnova is the number from which we extract the root
+#stupen is the root step
+#the function returns the root of a number
 def koren(osnova,stupen):
     if CORRECT_IN(osnova,stupen) is True:
         if (stupen == 0 or stupen < 0) and osnova == 0:
@@ -117,10 +115,10 @@ def koren(osnova,stupen):
         return 0
 
 
-#funkce LOG potrebuje dva operandy
-#osnova je cislo 
-#cislo je cislo s ktereho berem logarifm od osnovy
-#funkce vraci nejaky logarifm cisla od osnovy
+#Function LOG requirs two statements
+#osnova is the number (outline)
+#cislo is the number with which I take the logarithm from the outline
+#the function returns some logarifm of the number from the outline
 def log(osnova,cislo):
     if CORRECT_IN(osnova,cislo) is True:
         if (osnova == 1 or osnova < 0 or cislo < 0):
