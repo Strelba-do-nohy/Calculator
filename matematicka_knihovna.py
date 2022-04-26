@@ -68,7 +68,7 @@ def faktorial(cislo):
     if CORRECT_IN(cislo,cislo) is True:
       if (cislo < 0):
          return None
-      else if (cislo = 0) :
+      elif (cislo = 0) :
           return 1
       else:
         for i in range(1,cislo+1):
