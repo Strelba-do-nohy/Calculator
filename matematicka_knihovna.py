@@ -21,7 +21,7 @@ def CORRECT_IN(one,two):
 #the function reterns sum of statements one and two
 def plus(one,two):
     if CORRECT_IN(one,two) is True:
-        return round(one+two, 8)
+        return round(one+two, 7)
     else:
         raise TypeError("Wrong input! Please write a number.")
         return 0
@@ -33,7 +33,7 @@ def plus(one,two):
 #the function reterns difference between of statements one and two
 def minus(one,two):
     if CORRECT_IN(one,two) is True:
-        return round(one-two, 8)
+        return round(one-two, 7)
     else:
         raise TypeError("Wrong input! Please write a number.")
         return 0
@@ -44,7 +44,7 @@ def minus(one,two):
 #the function reterns multiplication of statements one and two
 def umnoz(one,two):
    if CORRECT_IN(one,two) is True:
-        return round(one*two,8)
+        return round(one*two,7)
    else:
         raise TypeError("Wrong input! Please write a number.")
         return 0
@@ -55,7 +55,7 @@ def umnoz(one,two):
 #the function reterns quotient of statements one and two
 def podeli(one,two):
     if CORRECT_IN(one,two) is True:
-        return round(one/two, 8)
+        return round(one/two, 7)
     else:
         raise TypeError("Wrong input! Please write a number.")
         return 0
@@ -73,7 +73,7 @@ def faktorial(cislo):
       else:
         for i in range(1,cislo+1):
          odpoved *= i
-      return round(odpoved, 8)
+      return round(odpoved, 7)
     else:
         raise TypeError("Wrong input! Please write a number.")
         return 0
@@ -88,7 +88,7 @@ def exponenta(osnova,stupen):
      if (stupen == 0 or stupen < 0) and osnova == 0:
          raise TypeError("Wrong input! Please write a number stupen >0.")
      else:
-         return round(osnova**stupen, 8)
+         return round(osnova**stupen, 7)
     else:
         raise TypeError("Wrong input! Please write a number.")
         return 0
@@ -109,7 +109,7 @@ def koren(osnova,stupen):
                     return -1*osnova**(1/stupen)
                 else:
                     raise TypeError("Wrong input! Please write a number osnova >0.")
-            return round(osnova**(1/stupen), 8)
+            return round(osnova**(1/stupen), 7)
     else:
         raise TypeError("Wrong input! Please write a number.")
         return 0
