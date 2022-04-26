@@ -66,14 +66,14 @@ def podeli(one,two):
 #function returns factorial of number
 def faktorial(cislo):
     if CORRECT_IN(cislo,cislo) is True:
-     if cislo >=0:
-         return 1
-         odpoved=1
-     else:
-         raise TypeError("Wrong input! Please write a number >=0.")
-     for i in range(1,cislo+1):
+      if (cislo < 0):
+         return None
+      else if (cislo = 0) :
+          return 1
+      else:
+        for i in range(1,cislo+1):
          odpoved *= i
-     return odpoved
+      return odpoved
     else:
         raise TypeError("Wrong input! Please write a number.")
         return 0
