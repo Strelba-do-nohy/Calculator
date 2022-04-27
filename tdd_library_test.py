@@ -39,9 +39,9 @@ class TestCalc(unittest.TestCase):
         self.assertEqual(calculator_library.faktorial(5), 120)
         self.assertEqual(calculator_library.faktorial(2), 2)
         self.assertEqual(calculator_library.faktorial(1), 1)
-
-        self.assertRaises(TypeError, calculator_library.faktorial, 0)
-        self.assertRaises(TypeError, calculator_library.faktorial, -7)
+        self.assertEqual(calculator_library.faktorial(0), 1)
+        
+        #self.assertRaises(TypeError, calculator_library.faktorial, -7)
         self.assertRaises(TypeError, calculator_library.faktorial, 3.33)
 
     def test_exponenta(self):
@@ -84,8 +84,8 @@ class TestCalc(unittest.TestCase):
         self.assertRaises(TypeError, calculator_library.log, -5, 2)
         self.assertRaises(TypeError, calculator_library.log, 1, 2)
         self.assertRaises(TypeError, calculator_library.log, 2, -2)
-        #self.assertRaises(TypeError, calculator_library.log, 0, 2)
-        #self.assertRaises(TypeError, calculator_library.log, 2, 0)
+        self.assertRaises(TypeError, calculator_library.log, 0, 2)
+        self.assertRaises(TypeError, calculator_library.log, 2, 0)
 
 if __name__ == '__main__':
     unittest.main()
