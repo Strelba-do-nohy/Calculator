@@ -85,7 +85,7 @@ def faktorial(cislo):
     if CORRECT_IN(cislo,cislo) is True:
       if (cislo < 0):
          raise TypeError("Wrong input! Please write a positive number.")
-      elif (cislo = 0) :
+      elif cislo == 0:
           return 1
       else:
         odpoved = 1
