@@ -79,7 +79,7 @@ def podeli(one,two):
 # @param cislo is an operand that is in the factorial
 # @return the factorial of cislo
 # @exception TypeError when cislo not a number
-# @excepption return None when cislo is not a positive number
+# @excepption TypeError when cislo is not a positive number
 # @excepption return 1 when cislo is 0
 def faktorial(cislo):
     if CORRECT_IN(cislo,cislo) is True:
@@ -97,10 +97,9 @@ def faktorial(cislo):
         return 0
 
 # @brief Function EXPONENTA requirs two statements
-# @param osnova is a base , 
-# which is amplified
-# exponenta is the **************
-#The function returns the base raised to the power
+# @param osnova is a base,which is amplified
+# @param exponenta is the **************
+# @return The base raised to the power
 def exponenta(osnova,stupen):
     if CORRECT_IN(osnova,stupen) is True:
      if (stupen == 0 or stupen < 0) and osnova == 0:
@@ -139,7 +138,7 @@ def koren(osnova,stupen):
 #the function returns some logarifm of the number from the outline
 def log(osnova,cislo):
     if CORRECT_IN(osnova,cislo) is True:
-        if (osnova == 1 or osnova < 0 or cislo < 0):
+        if (osnova == 1 or osnova <= 0 or cislo <= 0):
             raise TypeError("Wrong input! Please write a number osnova !=1 and osnova >0 and cislo >0.")
         else:
             odpoved = (100000000.0 * ((cislo ** (1/100000000.0)) - 1)) / (100000000.0 * ((osnova ** (1/100000000.0)) - 1))
