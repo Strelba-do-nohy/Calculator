@@ -98,8 +98,12 @@ def faktorial(cislo):
 
 # @brief Function EXPONENTA requirs two statements
 # @param osnova is a base,which is amplified
-# @param exponenta is the **************
-# @return The base raised to the power
+# @param stupen is the exponenta
+# @return The base raised osnova to the power stupen
+# @exception TypeError when osnova or stupen not a number
+# @excepption TypeError when stupen is not a positive number
+# @excepption TypeError when osnova is 0
+
 def exponenta(osnova,stupen):
     if CORRECT_IN(osnova,stupen) is True:
      if (stupen == 0 or stupen < 0) and osnova == 0:
@@ -111,10 +115,13 @@ def exponenta(osnova,stupen):
         return 0
 
 
-#Function KOREN requirs two statements
-#osnova is the number from which we extract the root
-#stupen is the root step
-#the function returns the root of a number
+# @brief Function KOREN requirs two statements
+# @param osnova is the number from which we extract the root
+# @param stupen is the root step
+# @return The root of a number
+# @exception TypeError when osnova or stupen not a number
+# @excepption TypeError when stupen is not a positive number
+# @excepption TypeError when osnova is 0
 def koren(osnova,stupen):
     if CORRECT_IN(osnova,stupen) is True:
         if (stupen == 0 or stupen < 0) and osnova == 0:
@@ -132,10 +139,13 @@ def koren(osnova,stupen):
         return 0
 
 
-#Function LOG requirs two statements
-#osnova is the number (outline)
-#cislo is the number with which I take the logarithm from the outline
-#the function returns some logarifm of the number from the outline
+# @brief Function LOG requirs two statements
+# @param osnova is the number (outline)
+# @param cislo is the number with which I take the logarithm from the outline
+# @return some logarifm of the number from the outline
+# @exception TypeError when osnova or cislo not a number
+# @excepption TypeError when cislo is not a positive number
+# @excepption TypeError when osnova is 1 or when osnova is not a positive number
 def log(osnova,cislo):
     if CORRECT_IN(osnova,cislo) is True:
         if (osnova == 1 or osnova <= 0 or cislo <= 0):
@@ -146,4 +156,6 @@ def log(osnova,cislo):
     else:
         raise TypeError("Wrong input! Please write a number.")
         return 0
-    
+######################################################################################################################################
+#End of file matematicka_knihovna.py
+#######################################################################################################################################
