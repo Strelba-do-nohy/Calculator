@@ -133,7 +133,7 @@ btn_root.grid(row=2, column=3, sticky="nswe")
 btn_power = tk.Button(root, text="x\u02b8", command=lambda: add_to_calculation("^"), width=5, font=("Arial", 14))
 btn_power.grid(row=2, column=4, sticky="nswe")
 
-btn_devide = tk.Button(root, text="÷", command=lambda: add_to_calculation("/"), width=5, font=("Arial", 14))
+btn_devide = tk.Button(root, text="÷", command=lambda: add_to_calculation("÷"), width=5, font=("Arial", 14))
 btn_devide.grid(row=3, column=4, sticky="nswe")
 
 btn_multiplie = tk.Button(root, text="*", command=lambda: add_to_calculation("*"), width=5, font=("Arial", 14))
