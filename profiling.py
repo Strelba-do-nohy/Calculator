@@ -15,13 +15,16 @@
 # @brief To import all functions from sys
 import cProfile
 import profile
+import sys
 import matematicka_knihovna as mk
-from sys import *
+
+profile = cProfile.Profile()
+profile.enable
 
 # @param pocet-counter of inputting numbers (flag for the next functon)
 pocet = 0
 # @param cisla-array of all inputting numbers
-cisla = input().split()
+cisla = sys.stdin.read().rstrip().split()
 # @param classic_add - counter of sum of inputting numbers (like E(i=1,N)x(i))
 classic_add = 0.0
 # @param exponenta_add - counter of squared sum of inputting numbers
