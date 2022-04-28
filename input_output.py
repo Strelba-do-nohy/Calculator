@@ -112,7 +112,7 @@ def check_kor(result):
                 x = int(2)
             
             if kor[1].isdigit():
-                 y = int(kor[0])
+                 y = int(kor[1])
             elif re.match(r'/', kor[1]):
                 tmp_kor = kor[1]
                 kor[1] = tmp_kor[1:]
@@ -371,20 +371,3 @@ def brackets(calculation, br):
         calculation = calculation[:left] + " " + str(math_work(tmp_line)) + " " + calculation[right+1:]
         br-=1
     return calculation
-
-calculation = "4+1"
-if check_brackets(calculation):
-    print("Error!")
-else:
-    calculation = "(" + calculation + ")"
-    br=0
-    for ind in calculation:
-        if ind=="(":
-            br+=1
-    result = brackets(calculation, br)
-    if re.match(r' /', result):
-        result = "-" + result[2:]
-    if re.search(r'\.', result):
-        if result[-2]=="0":
-            result=re.sub(r'\.[0-9]+', '', result)
-    print(result)
