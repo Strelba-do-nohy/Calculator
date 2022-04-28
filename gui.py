@@ -67,9 +67,6 @@ root.geometry("500x400")
 # @brief row and column configure make buttons sreatchable
 tk.Grid.rowconfigure(root, 0, weight=1)
 tk.Grid.columnconfigure(root, 0, weight=1)
-text_result = tk.Text(root, height=2, width=22, font=("Arial", 24))
-text_result.grid(row = 0, columnspan=10, sticky="nswe")
-
 tk.Grid.rowconfigure(root, 1, weight=1)
 tk.Grid.columnconfigure(root, 1, weight=1)
 tk.Grid.rowconfigure(root, 2, weight=1)
@@ -79,6 +76,10 @@ tk.Grid.columnconfigure(root, 3, weight=1)
 tk.Grid.rowconfigure(root, 4, weight=1)
 tk.Grid.columnconfigure(root, 4, weight=1)
 tk.Grid.rowconfigure(root, 5, weight=1)
+
+# @brief Add text window
+text_result = tk.Text(root, height=2, width=22, font=("Arial", 24))
+text_result.grid(row = 0, columnspan=10, sticky="nswe")
 
 # @brief buttons for numbers and symbols
 btn_1 = tk.Button(root, text="1", command=lambda: add_to_calculation(1), width=5, font=("Arial", 14))
