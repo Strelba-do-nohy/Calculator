@@ -38,7 +38,7 @@ if (pocet == 0):
 
 # @param middle is the average of all inputting numbers
 middle = mk.podeli(classic_add, pocet)
-# @param odpoved is the result from the given expression
+# @param odpoved is the result from the given expression(sample standard deviations)
 odpoved = mk.koren(mk.minus(mk.umnoz(exponenta_add, mk.umnoz(pocet, mk.exponenta(middle,2))), mk.minus(pocet,1)))
 
 print(odpoved)
