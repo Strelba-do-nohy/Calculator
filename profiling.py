@@ -15,6 +15,7 @@
 # @brief To import all functions from sys
 import matematicka_knihovna as mk
 from sys import *
+import cProfile
 
 # @param pocet-counter of inputting numbers (flag for the next functon)
 pocet = 0
