@@ -106,8 +106,8 @@ def faktorial(cislo):
 
 def exponenta(osnova,stupen):
     if CORRECT_IN(osnova,stupen) is True:
-     if (stupen == 0 or stupen < 0) and osnova == 0:
-         raise TypeError("Wrong input! Please write a number stupen >0.")
+     if (stupen < 0) and (type(stupen) !=int):
+         raise TypeError("Wrong input! Please write a natural number stupen >=0.")
      else:
          return round(osnova**stupen, 7)
     else:
@@ -124,7 +124,7 @@ def exponenta(osnova,stupen):
 # @excepption TypeError when osnova is 0
 def koren(osnova,stupen):
     if CORRECT_IN(osnova,stupen) is True:
-        if (stupen == 0 or stupen < 0) and osnova == 0:
+        if (stupen == 0 or stupen < 0) and (type(stupen) !=int) and osnova == 0:
             raise TypeError("Wrong input! Please write a number stupen >0 and osnova !=0.")
         else:
             if osnova<0:
