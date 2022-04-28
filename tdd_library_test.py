@@ -77,7 +77,7 @@ class TestCalc(unittest.TestCase):
 
     ## Test for exponenta function
     # @test Exponentiation of positive, negative, integer and none-integer numbers
-    # @test Raising error for negative, none-integer power 
+    # @test Raising error for none-integer power 
     # @param self Pointer to class
     def test_exponenta(self):
         self.assertEqual(calculator_library.exponenta(5, 2), 25)
@@ -90,8 +90,7 @@ class TestCalc(unittest.TestCase):
 
         self.assertAlmostEqual(calculator_library.exponenta(1.25, 4), 2.4414062, places = N_AFTER_DOT)
 
-        #self.assertRaises(TypeError, calculator_library.exponenta, 5, 3.5)
-        #self.assertRaises(TypeError, calculator_library.exponenta, 2, -3)
+        self.assertRaises(TypeError, calculator_library.exponenta, 5, 3.5)
 
     ## Test for koren function
     # @test Calculating root of positive, negative, integer and none-integer numbers
@@ -109,8 +108,8 @@ class TestCalc(unittest.TestCase):
 
         self.assertRaises(TypeError, calculator_library.koren, -5, 2)
         self.assertRaises(ZeroDivisionError, calculator_library.koren, 7, 0)
-        #self.assertRaises(TypeError, calculator_library.koren, 7, 3.33)
-        #self.assertRaises(TypeError, calculator_library.koren, 7, -3)
+        self.assertRaises(TypeError, calculator_library.koren, 7, 3.33)
+        self.assertRaises(TypeError, calculator_library.koren, 7, -3)
     
     ## Test for log function
     # @test Calculating logarithm to positive, integer, none-integer base of positive, integer and none-integer numbers 
