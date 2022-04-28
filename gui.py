@@ -124,20 +124,20 @@ btn_clear.grid(row=2, column=5, sticky="nswe")
 btn_factorial = tk.Button(root, text="x!", command=lambda: add_to_calculation("!"), width=6, font=("Arial", 14))
 btn_factorial.grid(row=3, column=5, sticky="nswe")
 
-btn_log = tk.Button(root, text="log\u02E3", command=lambda: add_to_calculation("log"), width=6, font=("Arial", 14))
+btn_log = tk.Button(root, text="logx", command=lambda: add_to_calculation("log"), width=6, font=("Arial", 14))
 btn_log.grid(row=4, column=5, sticky="nswe")
 
-btn_root = tk.Button(root, text="√", command=lambda: add_to_calculation("√"), width=5, font=("Arial", 14))
+btn_root = tk.Button(root, text="\u02E3√", command=lambda: add_to_calculation("√"), width=5, font=("Arial", 14))
 btn_root.grid(row=2, column=3, sticky="nswe")
 
 btn_power = tk.Button(root, text="x\u02b8", command=lambda: add_to_calculation("^"), width=5, font=("Arial", 14))
 btn_power.grid(row=2, column=4, sticky="nswe")
 
-btn_devide = tk.Button(root, text="÷", command=lambda: add_to_calculation("÷"), width=5, font=("Arial", 14))
-btn_devide.grid(row=3, column=4, sticky="nswe")
+btn_divide = tk.Button(root, text="÷", command=lambda: add_to_calculation("÷"), width=5, font=("Arial", 14))
+btn_divide.grid(row=3, column=4, sticky="nswe")
 
-btn_multiplie = tk.Button(root, text="*", command=lambda: add_to_calculation("*"), width=5, font=("Arial", 14))
-btn_multiplie.grid(row=4, column=4, sticky="nswe")
+btn_multiply = tk.Button(root, text="*", command=lambda: add_to_calculation("*"), width=5, font=("Arial", 14))
+btn_multiply.grid(row=4, column=4, sticky="nswe")
 
 btn_plus = tk.Button(root, text="+", command=lambda: add_to_calculation("+"), width=5, font=("Arial", 14))
 btn_plus.grid(row=5, column=4, sticky="nswe")
