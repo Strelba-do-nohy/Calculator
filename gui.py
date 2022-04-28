@@ -1,14 +1,29 @@
+########################################################
+# Project name: GUI for calculator
+# Package: Calculator
+# File: gui.py
+# Date: 04.04.2022
+# Last changes: 27.04.2022
+# Author: Strelba do nohy (Aliaksei Klimau -- xklima34)
+#########################################################
+# @package Calculator
+# @file gui.py
+# @author Strelba do nohy (Aliaksei Klimau -- xklima34)
+# @brief GUI for calculator
+##########################################################
 from glob import glob
 import tkinter as tk
 from tkinter import *
 
 import keyboard
 
-# string for input symbols 
+# @param string for input symbols 
 calculation = ""
 
 
-# function adds symbol to calculation string
+# @brief function adds symbol to calculation string 
+# @param symbol - letter or number called by pushing the bottom
+# @return of the push of the bottom write the symbol to the screen
 def add_to_calculation(symbol):
     global calculation
     calculation = text_result.get(1.0, "end-1c")
@@ -17,7 +32,8 @@ def add_to_calculation(symbol):
     text_result.insert(1.0, calculation)
 
 
-# function that prints out and saves result of calculation
+# @brief function that saves result of calculation
+# @return the function prints out
 def evaluate_calculation(self):
     global calculation
     calculation = text_result.get(1.0, "end-1c")
@@ -34,7 +50,7 @@ def evaluate_calculation(self):
 
     return "break"
 
-# clears string with calculation
+# @brief clears string with calculation
 
 
 def clear_field():
@@ -44,11 +60,11 @@ def clear_field():
     text_result.insert(1.0, "")
     pass
 
-# window for interface
+# @param window for interface
 root = tk.Tk()
 root.geometry("500x400")
 
-# row and column configure make buttons sreatchable
+# @brief row and column configure make buttons sreatchable
 tk.Grid.rowconfigure(root, 0, weight=1)
 tk.Grid.columnconfigure(root, 0, weight=1)
 text_result = tk.Text(root, height=2, width=22, font=("Arial", 24))
@@ -66,7 +82,7 @@ tk.Grid.columnconfigure(root, 5, weight=1)
 tk.Grid.rowconfigure(root, 6, weight=1)
 tk.Grid.columnconfigure(root, 6, weight=1)
 
-# buttons for numbers and symbols
+# @brief buttons for numbers and symbols
 btn_1 = tk.Button(root, text="1", command=lambda: add_to_calculation(1), width=5, font=("Arial", 14))
 btn_1.grid(row=3, column=1, sticky="nswe")
 tk.Grid.rowconfigure(root, 2, weight=1)
@@ -98,7 +114,7 @@ btn_left_parenthesis.grid(row=2, column=1, sticky="nswe")
 btn_right_parenthesis = tk.Button(root, text=")", command=lambda: add_to_calculation(")"), width=5, font=("Arial", 14))
 btn_right_parenthesis.grid(row=2, column=2, sticky="nswe")
 
-# buttons for operations 
+# @brief buttons for operations
 btn_equal = tk.Button(root, text="=", command=lambda: evaluate_calculation(0), width=5, font=("Arial", 14), bg="#0098ED")
 btn_equal.grid(row=6, column=3, sticky="nswe")
 
@@ -129,10 +145,13 @@ btn_plus.grid(row=5, column=4, sticky="nswe")
 btn_minus = tk.Button(root, text="-", command=lambda: add_to_calculation("-"), width=5, font=("Arial", 14))
 btn_minus.grid(row=6, column=4, sticky="nswe")
 
-# defines min size for calculator window
+# @param defines min size for calculator window
 root.wm_minsize(400, 250)
 
-# bind enter-key
+# @param bind enter-key
 root.bind('<Return>', evaluate_calculation)
 
 root.mainloop()
+######################################################################################################################################
+#End of file gui.py
+#######################################################################################################################################
