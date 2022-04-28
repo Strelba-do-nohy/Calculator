@@ -13,9 +13,10 @@
 
 # @brief To import all functions from math library and to name math library as "mk"
 # @brief To import all functions from sys
+import cProfile
+import profile
 import matematicka_knihovna as mk
 from sys import *
-import cProfile
 
 # @param pocet-counter of inputting numbers (flag for the next functon)
 pocet = 0
@@ -43,6 +44,9 @@ middle = mk.podeli(classic_add, pocet)
 odpoved = mk.koren(mk.minus(mk.umnoz(exponenta_add, mk.umnoz(pocet, mk.exponenta(middle,2))), mk.minus(pocet,1)))
 
 print(odpoved)
+cProfile.disable()
+profile.print_stats(sort='time')
+profile.dump_stats("profilinп.prof")
 ######################################################################################################################################
 #End of file profiling.py
 #######################################################################################################################################
