@@ -1,43 +1,22 @@
+########################################################
+# Project name: Input and output for calculator
+# Package: Calculator
+# File: input_output.py
+# Date: 06.04.2022
+# Last changes: 28.04.2022
+# Author: Strelba do nohy (Alina Aidusheva -- xaidus00)
+#########################################################
+# @package Calculator
+# @file input_output.py
+# @author Strelba do nohy (Alina Aidusheva -- xaidus00)
+##########################################################
+
 import matematicka_knihovna
 import re
 
-def parse(line):
-    change = re.findall(r'log[0-9]+|log /[0-9]+', line) + re.findall(r'log/[0-9]+', line)
-    for item in change:
-        line = re.sub(item, item+"|", line)
-    line = list(line)
-    result = ""
-    for character in line:
-        if character==" ":
-            continue
-        if character.isdigit():
-            result+=str(character)
-        
-        elif character=="." or character=="^" or character=="!" or character=="√" or character=="l" or character=="o" or character=="g" or character=="|" or character=="/":
-            result+=str(character)
-        else:
-            result+=" "+ str(character) + " "
-    while "  " in result:
-        result= result.replace("  ", " ")
-    if re.match(r' -', result):
-        result = "/" + result[3:]
-    if re.match(r'//', result):
-        result = result[2:]
-    result = result.split()
-    return result
-    
-def check_brackets (line):
-    count=0
-    for sign in line:
-        if sign == "(":
-            count+=1
-        if sign == ")":
-            count-=1
-            if count<0:
-                return 1
-    if count==0: return 0
-    else: return 1
-
+# @brief does all exponent operations in a string
+# @param the current segment of the line over which calculations are performed
+# @return a string with the result of the calculation inserted at the place of the operation exponent
 def check_exp(result):
     for item in range(len(result)):
         search_exp = re.findall(r'\^', result[item])
@@ -71,6 +50,9 @@ def check_exp(result):
                 result[item] = "/" + tmp_exp[1:]
     return result
 
+# @brief does all factorial operations in a string
+# @param the current segment of the line over which calculations are performed
+# @return a string with the result of the calculation inserted at the place of the operation factorial
 def check_fact(result):
     for item in range(len(result)):
         search_fact = re.findall(r'\!', result[item])
@@ -92,7 +74,10 @@ def check_fact(result):
                 x = float(fact[0])
                 result[item] = str(matematicka_knihovna.faktorial(x))
     return result
-    
+
+# @brief does all root operations in a string
+# @param the current segment of the line over which calculations are performed
+# @return a string with the result of the calculation inserted at the place of the operation root  
 def check_kor(result):
     for item in range(len(result)):
         search_kor = re.findall(r'√', result[item])
@@ -131,7 +116,10 @@ def check_kor(result):
             if re.match(r'/-', result[item]):
                 result[item] = result[item][2:]
     return result
-    
+
+# @brief does all logarigm operations in a string
+# @param the current segment of the line over which calculations are performed
+# @return a string with the result of the calculation inserted at the place of the operation logarigm   
 def check_log(result):
     for item in range(len(result)):
         search_log = re.findall(r'log', result[item])
@@ -167,6 +155,9 @@ def check_log(result):
                 result[item] = "/" + result[item][1:]
     return result
 
+# @brief does all multiplication operations in a string
+# @param the current segment of the line over which calculations are performed
+# @return a string with the result of the calculation inserted at the place of the operation multiplication
 def check_mul(result):
     result = " ".join(result)
     count_mul = re.findall(r'\*', result)
@@ -210,7 +201,10 @@ def check_mul(result):
                 result = result[:item-1] + result[item+1:]
                 break
     return result
-    
+
+# @brief does all division operations in a string
+# @param the current segment of the line over which calculations are performed
+# @return a string with the result of the calculation inserted at the place of the operation division
 def check_div(result):
     result = " ".join(result)
     count_div = re.findall(r'÷', result)
@@ -255,6 +249,9 @@ def check_div(result):
                 break
     return result
 
+# @brief does all plus operations in a string
+# @param the current segment of the line over which calculations are performed
+# @return a string with the result of the calculation inserted at the place of the operation plus
 def check_plus(result):
     result = " ".join(result)
     count_plus = re.findall(r'\+', result)
@@ -299,6 +296,9 @@ def check_plus(result):
                 break
     return result
 
+# @brief does all minus operations in a string
+# @param the current segment of the line over which calculations are performed
+# @return a string with the result of the calculation inserted at the place of the operation minus
 def check_minus(result):
     result = " ".join(result)
     count_min = re.findall(r'-', result)
@@ -343,6 +343,9 @@ def check_minus(result):
                 break
     return result
 
+# @brief does the calculations specified in the line in the correct order
+# @param the current segment of the line over which calculations are performed
+# @return a string containing the result of all calculations on the current string segment
 def math_work (line):
     result = parse(line)
     result = check_exp(result)
@@ -355,7 +358,54 @@ def math_work (line):
     result = check_minus(result)
     result = " ".join(result)
     return result
-    
+
+# @brief Dividing a string into groups of characters necessary for the correct operation of computational functions
+# @param line is the string we received from the function "math_work"
+# @return a parsed string for the correct operation of computational functions
+def parse(line):
+    change = re.findall(r'log[0-9]+|log /[0-9]+', line) + re.findall(r'log/[0-9]+', line)
+    for item in change:
+        line = re.sub(item, item+"|", line)
+    line = list(line)
+    result = ""
+    for character in line:
+        if character==" ":
+            continue
+        if character.isdigit():
+            result+=str(character)
+        
+        elif character=="." or character=="^" or character=="!" or character=="√" or character=="l" or character=="o" or character=="g" or character=="|" or character=="/":
+            result+=str(character)
+        else:
+            result+=" "+ str(character) + " "
+    while "  " in result:
+        result= result.replace("  ", " ")
+    if re.match(r' -', result):
+        result = "/" + result[3:]
+    if re.match(r'//', result):
+        result = result[2:]
+    result = result.split()
+    return result
+
+# @brief Function "check_brackets" checking if the user is entering the correct number of brackets and controling their position
+# @param line is the original string we received from the user
+# @return "0" if the user is entering brackets correctly and "1" if not
+def check_brackets (line):
+    count=0
+    for sign in line:
+        if sign == "(":
+            count+=1
+        if sign == ")":
+            count-=1
+            if count<0:
+                return 1
+    if count==0: return 0
+    else: return 1
+
+# @brief Calculations in brackets and returning a string with a result of calculations
+# @param br is a number of the opening brackets "("
+# @param calculation is a string containing all calculations
+# @return a string containing the final result of all calculations, including all calculations in brackets
 def brackets(calculation, br):
     left=0
     right=0
@@ -371,3 +421,6 @@ def brackets(calculation, br):
         calculation = calculation[:left] + " " + str(math_work(tmp_line)) + " " + calculation[right+1:]
         br-=1
     return calculation
+######################################################################################################################################
+#End of file input_output.py
+#######################################################################################################################################
