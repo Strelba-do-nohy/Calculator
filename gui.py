@@ -11,11 +11,7 @@
 # @author Strelba do nohy (Aliaksei Klimau -- xklima34)
 # @brief GUI for calculator
 ##########################################################
-from glob import glob
 import tkinter as tk
-from tkinter import *
-
-import keyboard
 
 # @param string for input symbols 
 calculation = ""
