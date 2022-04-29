@@ -35,11 +35,27 @@ def evaluate_calculation(self):
     calculation = text_result.get(1.0, "end-1c")
     print(calculation)
     try:
-        result = str(eval(calculation))
+        if input_output.check_brackets(calculation):
+            clear_field()
+            text_result.insert(1.0, "Error")
+        else:
+            calculation = "(" + calculation + ")"
+            br=0
+            for ind in calculation:
+                if ind=="(":
+                    br+=1
+            result = input_output.brackets(calculation, br)
+            if re.match(r' /', result):
+                result = "-" + result[2:]
+            else:
+                result = result[1:]
+            result = result[:-1]
+            if re.search(r'\.', result):
+                if result[-1]=="0":
+                    result=re.sub(r'\.[0-9]+', '', result)
         calculation = result
         text_result.delete(1.0, "end")
         text_result.insert(1.0, result)
-
     except:
         clear_field()
         text_result.insert(1.0, "Error")
