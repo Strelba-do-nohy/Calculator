@@ -1,4 +1,4 @@
-xzdebs00  95 (ttd_tests, Instalator, Makefile, Repository,Readme,Debugging)
+xzdebs00  100 (ttd_tests, Instalator, Makefile, Repository,Readme,Debugging)
 xgarip00  115   (matematicka_knihovna, profiling, Doxifile, Makefile, hodnoceni.txt,Debugging)
-xklima34  105 (GUI,Deinstalator, Mockup,Debugging,skutecnost.txt)
-xaidus00  85  (Input/output, Dokumentation for user,Debugging)
+xklima34  95 (GUI,Deinstalator, Mockup,Debugging,skutecnost.txt)
+xaidus00  90  (Input/output, Dokumentation for user,Debugging)
