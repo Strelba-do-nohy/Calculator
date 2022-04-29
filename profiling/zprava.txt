@@ -1,1 +1,5 @@
-
+Profiling report:
+As we can see from the output, due to the fact that we have combined the execution of simple functions into several 
+long lines, the program practically does not lose speed with an increase in the number of input data.
+The execution time for the largest number of input data (1000 characters) does not exceed 0.006 seconds.
+In fact, the program does not linger at any of the stages of execution.
