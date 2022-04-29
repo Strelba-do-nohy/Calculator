@@ -1,0 +1,6 @@
+Unrealistic deadlines 
+  When setting deadlines we didn't take into considiration terms of exams and other projects.
+Inefficient task distribution 
+  We didn't analyze project structure well enough, so we distributed tasks between team members in a way, that for example for mockup was responsible person who didn't make gui so we had to swap roles.
+Miscommunication
+  We should have conducted meeting more often than we did, that's why in some cases we faced minor problems in implementaio.
