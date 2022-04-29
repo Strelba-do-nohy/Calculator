@@ -1,10 +1,10 @@
 # Calculator
-Prostredi
+Platform
 ---------
 
 Windows 64bit
 
-Autori
+Authors
 ------
 
 Strelba do nohy
@@ -16,4 +16,4 @@ Strelba do nohy
 Licence
 -------
 
-Tento program je poskytovan...
+This program is distributed under a GNU General Public License v3.0.
