@@ -4,15 +4,18 @@ Platform
 
 Windows 64bit
 
-INSTALLATION
+Installation
 ------------
 
 ● Open the setup and run "setup.msi"
+
 ● Follow the instructions on screen:
+
     • select the installation language
     • read the license and click "I agree"		
     • select the options of your choice
     • click the "next" button to install
+ 
 ● After a short time, the Calculator is installed press "Close" to exit the installer.
 
 Authors
