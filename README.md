@@ -1,10 +1,24 @@
 # Calculator
-Prostredi
+Platform
 ---------
 
 Windows 64bit
 
-Autori
+Installation
+------------
+
+● Open the setup and run "setup.msi"
+
+● Follow the instructions on screen:
+
+    • select the installation language
+    • read the license and click "I agree"		
+    • select the options of your choice
+    • click the "next" button to install
+ 
+● After a short time, the Calculator is installed press "Close" to exit the installer.
+
+Authors
 ------
 
 Strelba do nohy
@@ -16,4 +30,4 @@ Strelba do nohy
 Licence
 -------
 
-Tento program je poskytovan...
+This program is distributed under a GNU General Public License v3.0.
