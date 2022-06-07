@@ -1,23 +1,27 @@
-########################################################
-# Project name: Input and output for calculator
-# Package: Calculator
-# File: input_output.py
-# Date: 06.04.2022
-# Last changes: 28.04.2022
-# Author: Strelba do nohy (Alina Aidusheva -- xaidus00)
-#########################################################
-# @package Calculator
-# @file input_output.py
-# @author Strelba do nohy (Alina Aidusheva -- xaidus00)
-##########################################################
+"""!
+* Project Name : Calculator                                               
+* File : input_output.py                                                     
+* Date : 06.04.2022                                                        
+* Last change : 28.04.2022                                                 
+* Author : Strelba do nohy (Alina Aidusheva -- xaidus00)                                                                                                                 
+* Description : Input and output for calculator, parsing and working with a string                                                                                 
+"""
+"""!
+ @file input_output.py                                                                     
+ @brief Input and output for calculator                                                   
+ @author Strelba do nohy (Alina Aidusheva -- xaidus00)
+"""
 
 import matematicka_knihovna
 import re
 
-# @brief does all exponent operations in a string
-# @param the current segment of the line over which calculations are performed
-# @return a string with the result of the calculation inserted at the place of the operation exponent
 def check_exp(result):
+    """!
+    @brief does all exponent operations in a string
+    @param result the current segment of the line over which calculations are performed
+    @return a string with the result of the calculation inserted at the place of the operation exponent
+    """
+    #all actions are similar to the functions check_log, check_kor and check_fact
     for item in range(len(result)):
         search_exp = re.findall(r'\^', result[item])
         if search_exp:
@@ -50,18 +54,20 @@ def check_exp(result):
                 result[item] = "/" + tmp_exp[1:]
     return result
 
-# @brief does all factorial operations in a string
-# @param the current segment of the line over which calculations are performed
-# @return a string with the result of the calculation inserted at the place of the operation factorial
 def check_fact(result):
+    """!
+    @brief does all factorial operations in a string
+    @param result the current segment of the line over which calculations are performed
+    @return a string with the result of the calculation inserted at the place of the operation factorial
+    """
     for item in range(len(result)):
-        search_fact = re.findall(r'\!', result[item])
-        if search_fact:
-            fact = re.split(r'\!', result[item])
-            if fact[0].isdigit():
+        search_fact = re.findall(r'\!', result[item]) #searched in string factorial
+        if search_fact: #if the factorial is found
+            fact = re.split(r'\!', result[item]) #separates the sign "!"
+            if fact[0].isdigit(): #if x is int
                  x = int(fact[0])
                  result[item] = str(matematicka_knihovna.faktorial(x))
-            elif re.match(r'/', fact[0]):
+            elif re.match(r'/', fact[0]): #if before x stands "-"
                 tmp_fact = fact[0]
                 fact[0] = tmp_fact[1:]
                 if fact[0].isdigit():
@@ -70,15 +76,18 @@ def check_fact(result):
                 else:
                     x = float(fact[0])
                     result[item] = "/" + str(matematicka_knihovna.faktorial(x))
-            else:
+            else: #if x is float
                 x = float(fact[0])
                 result[item] = str(matematicka_knihovna.faktorial(x))
     return result
 
-# @brief does all root operations in a string
-# @param the current segment of the line over which calculations are performed
-# @return a string with the result of the calculation inserted at the place of the operation root  
 def check_kor(result):
+    """!
+    @brief does all root operations in a string
+    @param result the current segment of the line over which calculations are performed
+    @return a string with the result of the calculation inserted at the place of the operation root  
+    """
+    #all actions are similar to the functions check_kor
     for item in range(len(result)):
         search_kor = re.findall(r'√', result[item])
         if search_kor:
@@ -117,48 +126,102 @@ def check_kor(result):
                 result[item] = result[item][2:]
     return result
 
-# @brief does all logarigm operations in a string
-# @param the current segment of the line over which calculations are performed
-# @return a string with the result of the calculation inserted at the place of the operation logarigm   
 def check_log(result):
+    """!
+    @brief does all logarigm operations in a string
+    @param result the current segment of the line over which calculations are performed
+    @return a string with the result of the calculation inserted at the place of the operation logarigm   
+    """
     for item in range(len(result)):
-        search_log = re.findall(r'log', result[item])
+        search_log = re.findall(r'log', result[item]) #find all log constructions in the string
         if search_log:
             loga = result[item]
-            result[item] = loga[3:]
-            loga = re.split(r'\|', result[item])
-            if re.match(r'/', loga[0]):
-                loga[0]=loga[0][1:]
+            result[item] = loga[3:] #cut characters "log"
+            loga = re.split(r'\|', result[item]) #separates "\"
+            if re.match(r'/', loga[0]): #if find '/', add minus sign to number
+                loga[0]=loga[0][1:] 
                 if loga[0].isdigit():
-                    x = int("-" + loga[0])
+                    x = int("-" + loga[0]) #if x is int
                 else:
-                    x = float("-" + loga[0])
-            else:
+                    x = float("-" + loga[0]) #if x is float
+            else: #if number is positive
                 if loga[0].isdigit():
-                    x = int(loga[0])
+                    x = int(loga[0]) #if x is int
                 else:
-                    x = float(loga[0])
-            print(x)
-            if re.match(r'/', loga[1]):
+                    x = float(loga[0]) #if x is float
+            if re.match(r'/', loga[1]):  #if find '/', add minus sign to number
                 loga[1]=loga[1][1:]
                 if loga[1].isdigit():
-                    y = int("-" + loga[1])
+                    y = int("-" + loga[1]) #if x is int
                 else:
-                    y = float("-" + loga[1])
-            else:
+                    y = float("-" + loga[1]) #if x is float
+            else: #if number is positive
                 if loga[1].isdigit():
-                    y = int(loga[1])
+                    y = int(loga[1]) #if x is int
                 else:
-                    y = float(loga[1])
-            result[item] = str(matematicka_knihovna.log(x,y))
+                    y = float(loga[1]) #if x is float
+            result[item] = str(matematicka_knihovna.log(x,y)) #sends values x and y to the log function, get the answer in result[item]
             if re.match(r'-', result[item]):
-                result[item] = "/" + result[item][1:]
+                result[item] = "/" + result[item][1:] #replacing the minus with "/"
     return result
 
-# @brief does all multiplication operations in a string
-# @param the current segment of the line over which calculations are performed
-# @return a string with the result of the calculation inserted at the place of the operation multiplication
+
+def check_div(result):
+    """!
+    @brief does all division operations in a string
+    @param result the current segment of the line over which calculations are performed
+    @return a string with the result of the calculation inserted at the place of the operation division
+    """
+    result = " ".join(result)
+    count_div = re.findall(r'÷', result)
+    count_div = len(count_div) #number of character "÷" in the string
+    result = parse(result)
+    while count_div>0: #as long as there are "÷" in the line
+        for item in range(len(result)):
+            if result[item]=="÷":
+                flag_min_x=0 # "1" if x is a negative number, else "0"
+                flag_min_y=0 # "1" if y is a negative number, else "0"
+                if re.match(r'/', result[item-1]):
+                    flag_min_x = 1
+                    result[item-1] = result[item-1][1:]
+                if result[item-1].isdigit(): #if x is int
+                    if flag_min_x:
+                        x = int("-" + result[item-1]) #add minus sign to number if flag is 1
+                    else:
+                        x = int(result[item-1])
+                else: #if x is float
+                    if flag_min_x:
+                        x = float("-" + result[item-1]) #add minus sign to number if flag is 1
+                    else:
+                        x = float(result[item-1])
+                if re.match(r'/', result[item+1]):
+                    flag_min_y = 1
+                    result[item+1] = result[item+1][1:]
+                if result[item+1].isdigit(): #if y is int
+                    if flag_min_y:
+                        y = int("-" + result[item+1]) #add minus sign to number if flag is 1
+                    else:
+                        y = int(result[item+1])
+                else: #if x is float
+                    if flag_min_y:
+                        y = float("-" + result[item+1]) #add minus sign to number if flag is 1
+                    else:
+                        y = float(result[item+1])
+                result[item+1] = str(matematicka_knihovna.podeli(x,y)) #sends values x and y to the "podeli" function, get the answer in result[item+1]
+                if re.match(r'-', result[item+1]):
+                    result[item+1] = "/" + result[item+1][1:] #replacing the minus with "/"
+                count_div-=1 #the number of remaining actions with a "÷" in the line decreased by one
+                result = result[:item-1] + result[item+1:] #cutting the string
+                break
+    return result
+
 def check_mul(result):
+    """!
+    @brief does all multiplication operations in a string
+    @param result the current segment of the line over which calculations are performed
+    @return a string with the result of the calculation inserted at the place of the operation multiplication
+    """
+    #all actions are similar to the functions check_div, check_min, check_plus
     result = " ".join(result)
     count_mul = re.findall(r'\*', result)
     count_mul = len(count_mul)
@@ -202,151 +265,110 @@ def check_mul(result):
                 break
     return result
 
-# @brief does all division operations in a string
-# @param the current segment of the line over which calculations are performed
-# @return a string with the result of the calculation inserted at the place of the operation division
-def check_div(result):
-    result = " ".join(result)
-    count_div = re.findall(r'÷', result)
-    count_div = len(count_div)
-    result = parse(result)
-    while count_div>0:
-        for item in range(len(result)):
-            if result[item]=="÷":
-                flag_min_x=0
-                flag_min_y=0
-                if re.match(r'/', result[item-1]):
-                    flag_min_x = 1
-                    result[item-1] = result[item-1][1:]
-                if result[item-1].isdigit():
-                    if flag_min_x:
-                        x = int("-" + result[item-1])
-                    else:
-                        x = int(result[item-1])
-                else:
-                    if flag_min_x:
-                        x = float("-" + result[item-1])
-                    else:
-                        x = float(result[item-1])
-                if re.match(r'/', result[item+1]):
-                    flag_min_y = 1
-                    result[item+1] = result[item+1][1:]
-                if result[item+1].isdigit():
-                    if flag_min_y:
-                        y = int("-" + result[item+1])
-                    else:
-                        y = int(result[item+1])
-                else:
-                    if flag_min_y:
-                        y = float("-" + result[item+1])
-                    else:
-                        y = float(result[item+1])
-                result[item+1] = str(matematicka_knihovna.podeli(x,y))
-                if re.match(r'-', result[item+1]):
-                    result[item+1] = "/" + result[item+1][1:]
-                count_div-=1
-                result = result[:item-1] + result[item+1:]
-                break
-    return result
-
-# @brief does all plus operations in a string
-# @param the current segment of the line over which calculations are performed
-# @return a string with the result of the calculation inserted at the place of the operation plus
 def check_plus(result):
+    """!
+    @brief does all plus operations in a string
+    @param result the current segment of the line over which calculations are performed
+    @return a string with the result of the calculation inserted at the place of the operation plus
+    """
     result = " ".join(result)
     count_plus = re.findall(r'\+', result)
-    count_plus = len(count_plus)
+    count_plus = len(count_plus) #number of character "+" in the string
     result = parse(result)
-    while count_plus>0:
+    while count_plus>0: #as long as there are pluses in the line
         for item in range(len(result)):
             if result[item]=="+":
-                flag_min_x=0
-                flag_min_y=0
+                flag_min_x=0 # "1" if x is a negative number, else "0"
+                flag_min_y=0 # "1" if y is a negative number, else "0"
                 if re.match(r'/', result[item-1]):
                     flag_min_x = 1
                     result[item-1] = result[item-1][1:]
-                if result[item-1].isdigit():
+                if result[item-1].isdigit(): #if x is int
                     if flag_min_x:
-                        x = int("-" + result[item-1])
+                        x = int("-" + result[item-1]) #add minus sign to number if flag is 1 
                     else:
                         x = int(result[item-1])
-                else:
+                else: #if x is float
                     if flag_min_x:
-                        x = float("-" + result[item-1])
+                        x = float("-" + result[item-1]) #add minus sign to number if flag is 1
                     else:
                         x = float(result[item-1])
                 if re.match(r'/', result[item+1]):
                     flag_min_y = 1
                     result[item+1] = result[item+1][1:]
-                if result[item+1].isdigit():
+                if result[item+1].isdigit(): #if x is int
                     if flag_min_y:
-                        y = int("-" + result[item+1])
+                        y = int("-" + result[item+1]) #add minus sign to number if flag is 1 
                     else:
                         y = int(result[item+1])
-                else:
+                else: #if y is float
                     if flag_min_y:
-                        y = float("-" + result[item+1])
+                        y = float("-" + result[item+1]) #add minus sign to number if flag is 1 
                     else:
                         y = float(result[item+1])
-                result[item+1] = str(matematicka_knihovna.plus(x,y))
+                result[item+1] = str(matematicka_knihovna.plus(x,y)) #sends values x and y to the plus function, get the answer in result[item+1]
                 if re.match(r'-', result[item+1]):
-                    result[item+1] = "/" + result[item+1][1:]
-                count_plus-=1
-                result = result[:item-1] + result[item+1:]
+                    result[item+1] = "/" + result[item+1][1:] #replacing the minus with "/"
+                count_plus-=1 #the number of remaining actions with a plus in the line decreased by one
+                result = result[:item-1] + result[item+1:] #cutting the string to the value (before: a-x+y, after: a-c)
                 break
     return result
 
-# @brief does all minus operations in a string
-# @param the current segment of the line over which calculations are performed
-# @return a string with the result of the calculation inserted at the place of the operation minus
 def check_minus(result):
+    """!
+    @brief Does all minus operations in a string
+    @param result the current segment of the line over which calculations are performed
+    @return a string with the result of the calculation inserted at the place of the operation minus
+    """
     result = " ".join(result)
     count_min = re.findall(r'-', result)
-    count_min = len(count_min)
+    count_min = len(count_min) #number of character "-" in the string
     result = parse(result)
-    while count_min>0:
+    while count_min>0: #as long as there are minuses in the line
         for item in range(len(result)):
             if result[item]=="-":
-                flag_min_x=0
-                flag_min_y=0
+                flag_min_x=0 # "1" if x is a negative number, else "0"
+                flag_min_y=0 # "1" if y is a negative number, else "0"
                 if re.match(r'/', result[item-1]):
                     flag_min_x = 1
                     result[item-1] = result[item-1][1:]
-                if result[item-1].isdigit():
+                if result[item-1].isdigit(): #if x is int
                     if flag_min_x:
-                        x = int("-" + result[item-1])
+                        x = int("-" + result[item-1]) #add minus sign to number if flag is 1
                     else:
                         x = int(result[item-1])
-                else:
+                else: #if x is float
                     if flag_min_x:
-                        x = float("-" + result[item-1])
+                        x = float("-" + result[item-1]) #add minus sign to number if flag is 1
                     else:
                         x = float(result[item-1])
                 if re.match(r'/', result[item+1]):
                     flag_min_y = 1
                     result[item+1] = result[item+1][1:]
-                if result[item+1].isdigit():
+                if result[item+1].isdigit(): #if y is int
                     if flag_min_y:
-                        y = int("-" + result[item+1])
+                        y = int("-" + result[item+1]) #add minus sign to number if flag is 1
                     else:
                         y = int(result[item+1])
-                else:
+                else: #if y is float
                     if flag_min_y:
-                        y = float("-" + result[item+1])
+                        y = float("-" + result[item+1]) #add minus sign to number if flag is 1
                     else:
                         y = float(result[item+1])
-                result[item+1] = str(matematicka_knihovna.minus(x,y))
+                result[item+1] = str(matematicka_knihovna.minus(x,y)) #sends values x and y to the minus function, get the answer in result[item+1]
                 if re.match(r'-', result[item+1]):
-                    result[item+1] = "/" + result[item+1][1:]
-                count_min-=1
-                result = result[:item-1] + result[item+1:]
+                    result[item+1] = "/" + result[item+1][1:] #replacing the minus with "/"
+                count_min-=1 #the number of remaining actions with a minus in the line decreased by one
+                result = result[:item-1] + result[item+1:] #cutting the string to the value (before: a+x-y, after: a+c)
                 break
     return result
 
-# @brief does the calculations specified in the line in the correct order
-# @param the current segment of the line over which calculations are performed
-# @return a string containing the result of all calculations on the current string segment
 def math_work (line):
+    """!
+    @brief Does the calculations specified in the line in the correct order
+    @param line the current segment of the line over which calculations are performed
+    @return a string containing the result of all calculations on the current string segment
+    """
     result = parse(line)
     result = check_exp(result)
     result = check_fact(result)
@@ -359,16 +381,19 @@ def math_work (line):
     result = " ".join(result)
     return result
 
-# @brief Dividing a string into groups of characters necessary for the correct operation of computational functions
-# @param line is the string we received from the function "math_work"
-# @return a parsed string for the correct operation of computational functions
+
 def parse(line):
-    change = re.findall(r'log[0-9]+|log /[0-9]+', line) + re.findall(r'log/[0-9]+', line)
+    """!
+    @brief Dividing a string into groups of characters necessary for the correct operation of computational functions
+    @param line is the string we received from the function "math_work"
+    @return a parsed string for the correct operation of computational functions
+    """
+    change = re.findall(r'log[0-9]+|log /[0-9]+', line) + re.findall(r'log/[0-9]+', line) #find all log constructs
     for item in change:
-        line = re.sub(item, item+"|", line)
-    line = list(line)
+        line = re.sub(item, item+"|", line) #attaches "|" to all log constructions
+    line = list(line) #built-in mutable sequence.
     result = ""
-    for character in line:
+    for character in line: #all characters are entered into the new line "result", those that are not specified in the elsif are written with spaces
         if character==" ":
             continue
         if character.isdigit():
@@ -379,18 +404,20 @@ def parse(line):
         else:
             result+=" "+ str(character) + " "
     while "  " in result:
-        result= result.replace("  ", " ")
+        result= result.replace("  ", " ") #remove extra spaces
     if re.match(r' -', result):
-        result = "/" + result[3:]
+        result = "/" + result[3:] #replacing the minus in front of the line with "/"
     if re.match(r'//', result):
-        result = result[2:]
+        result = result[2:] #and removing the double "/" (since it's equivalent to -(-x) )
     result = result.split()
     return result
 
-# @brief Function "check_brackets" checking if the user is entering the correct number of brackets and controling their position
-# @param line is the original string we received from the user
-# @return "0" if the user is entering brackets correctly and "1" if not
 def check_brackets (line):
+    """!
+    @brief Function "check_brackets" checking if the user is entering the correct number of brackets and controling their position
+    @param line is the original string we received from the user
+    @return "0" if the user is entering brackets correctly and "1" if not
+    """
     count=0
     for sign in line:
         if sign == "(":
@@ -402,11 +429,13 @@ def check_brackets (line):
     if count==0: return 0
     else: return 1
 
-# @brief Calculations in brackets and returning a string with a result of calculations
-# @param br is a number of the opening brackets "("
-# @param calculation is a string containing all calculations
-# @return a string containing the final result of all calculations, including all calculations in brackets
 def brackets(calculation, br):
+    """!
+    @brief Calculations in brackets and returning a string with a result of calculations
+    @param br is a number of the opening brackets "("
+    @param calculation is a string containing all calculations
+    @return a string containing the final result of all calculations, including all calculations in brackets
+    """
     left=0
     right=0
     while br>0:
@@ -421,6 +450,3 @@ def brackets(calculation, br):
         calculation = calculation[:left] + " " + str(math_work(tmp_line)) + " " + calculation[right+1:]
         br-=1
     return calculation
-######################################################################################################################################
-#End of file input_output.py
-#######################################################################################################################################
